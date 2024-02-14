@@ -1,3 +1,18 @@
+from random import random, randint
+
+def gen_location(l1, size=SIZE):
+  if l1 is food_locations:
+    location = [randint(-size / 2, size /2 ), randint(-size / 2, size / 2)]
+    while location in food_locations:
+      location = [randint(-size / 2, size /2 ), randint(-size / 2, size / 2)]
+    food_locations.append(location)
+  else:
+    location = [randint(-size / 2, size /2 ), randint(-size / 2, size / 2)]
+    while location in cell_locations:
+      location = [randint(-size / 2, size /2 ), randint(-size / 2, size / 2)]
+    cell_locations.append(location)
+  return location
+
 class Cell:
   def __init__(self):
     self.location = gen_location(cell_locations)
